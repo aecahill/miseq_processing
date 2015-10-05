@@ -8,7 +8,6 @@ library(dplyr) #load dplyr
 out_table = NULL #initiate empty data frame
 
 files<-list.files() #create list of all files in the working directory
-#x<-length(files) #calculate the number of files in the working directory
 
 for (i in files) {
   
