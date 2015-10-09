@@ -1,0 +1,62 @@
+# use fastq.info to parse into fasta and qual files
+
+fastq.info(fastq=NAME.fastq, format=illumina1.8+)
+
+#truncate sequences to 200 bp, then quality filter to Phred of 35 and remove all sequences that are less than 200 bp (results in sequences that are all 200 bp including primers at the end)
+
+trim.seqs(fasta=NAME.trim.fasta, minlength=200, qwindowsize=10, qwindowaverage=35, qfile=NAME.qual, removelast=50)
+
+#create a groups file with the sequences we want to keep (average quality >= 35, length ==200)
+#note that the oligos file needs to be oligos_r.oligos for the R2 reads
+
+trim.seqs(fasta=NAME.trim.fasta, oligos=oligos_f.oligos)
+
+# split the cleaned sequences into groups per locus - output is one file per locus NAME.trim.good.LOCUS
+
+split.groups(fasta=NAME.trim.trim.fasta, group=NAME.trim.groups)
+
+# from here everything will be done for each locus
+# unique seqs to find dups and generate name file and counttable to count them - output is NAME.trim.good.LOCUS.unique with fasta, names, and counttable
+
+unique.seqs(NAME.trim.trim.pliv_i21.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.pliv_COI.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.ecor_EF1.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.ecor_16S.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.asqu_i50.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.patelle_AMY.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.patelle_LCO.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.patelle_i48.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.pliv_rep.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.pliv_int.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.olon_1972.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.olon_55384.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.olon_79905.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.olon_97479.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.olon_147510.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.olon_COI.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.mtru_i21.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.mtru_i29.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.litho_psbA.fasta)
+count.seqs()
+unique.seqs(NAME.trim.trim.litho_28S.fasta)
+count.seqs()
+
+# now we can check for the most common sequence for each locus with the R script; the rest are probably read errors.
