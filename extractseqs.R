@@ -6,7 +6,7 @@
 
 library (seqinr) #load seqinr
 
-goodreads<-read.table("C:/Users/Abigail/Desktop/goodreadsecor16S.txt",header=TRUE) #read in list of names we need; to change each time the file changes
+goodreads<-read.table("C:/Users/Abigail/Desktop/Reverse/goodreadsR/pliv_COI_goodreadsR.txt",header=TRUE) #read in list of names we need; to change each time the file changes
 files<-list.files() #make a list of all files in the working directory
 seq_out_table = NULL #initialize empty data frame
 
@@ -20,5 +20,5 @@ for (i in goodreads$well) {
 
 colnames(seq_out_table)<-c("read","well") #rename columns on output table; prob not needed
 
-#write.fasta(seq_out_table[,1],names=seq_out_table[,2],"fastaout.fasta") 
+write.fasta(seq_out_table[,1],names=seq_out_table[,2],"C:/Users/Abigail/Desktop/Reverse/out_fasta_R/pliv_COI_outR.fasta") 
 #command to save to fasta with sequences and well names; change file name for each locus
