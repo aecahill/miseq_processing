@@ -26,7 +26,7 @@ for (i in lengthfiles) {
     
   }
   
-  markeroutput<-cbind(i,value[1],max(t$V4)) #make dataframe to connect marker name with the highest value that passes threshold
+  markeroutput<-cbind(i,value[1],max(t$V4)) #make dataframe to connect marker name with the highest value that passes threshold and the max length
   outputs<-rbind(outputs,markeroutput) #bind dataframe for each marker
 }
 
