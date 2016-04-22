@@ -5,7 +5,7 @@ lengthfiles<-list.files() #create list of all files in the working directory
 
 outputs<-data.frame() #initiate data frame
 
-x0<-1 #set start of bp sequence
+x0<-0 #set start of bp sequence
 breakpoints<-seq(x0, 250, 1) #create vector from 1 to 250
 
 for (i in lengthfiles) {
@@ -26,9 +26,9 @@ for (i in lengthfiles) {
     
   }
   
-  markeroutput<-cbind(i,value[1]+1) #make dataframe to connect marker name with the highest value that passes threshold
+  markeroutput<-cbind(i,value[1],max(t$V4)) #make dataframe to connect marker name with the highest value that passes threshold
   outputs<-rbind(outputs,markeroutput) #bind dataframe for each marker
 }
 
-colnames(outputs)<-c("marker","cut_size") #add column names
+colnames(outputs)<-c("marker","cut_size","max") #add column names
 print(outputs) #print dataframe for all markers

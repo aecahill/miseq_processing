@@ -3,7 +3,7 @@
 
 lengthfiles<-list.files() #create list of all files in the working directory
 
-x0<-1 #set start of breakpoint sequence
+x0<-0 #set start of breakpoint sequence
 breakpoints<-seq(x0, 250, 1) #create 1 bp bins for histogram
 
 for (i in lengthfiles) {
