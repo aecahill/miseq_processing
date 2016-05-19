@@ -1,4 +1,6 @@
-#This is a program to assess MiSeq count tables from MOTHUR based on DANA code
+#This is a program to assess MiSeq count tables based on DANA code
+#To be run in a working directory containing only count tables 
+#NB: will break if there are empty count tables in the folder
 
 library(dplyr) #load dplyr 
 

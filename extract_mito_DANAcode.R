@@ -1,12 +1,12 @@
 #This is a program that takes a list of read names and well names and creates a fasta file of the reads we want for a single locus.
 #input: text file with list of reads and well names associated
 #for now, header on text file needs to read "read" and "well"
-#also need working directory to contain all fasta files for a locus (.unique are best b/c smallest)
+#also need working directory to contain all fasta files for a locus 
 #NB: will break if the names of the wells are not represented in the file list
 
 library (seqinr) #load seqinr
 
-goodreads<-read.table("C:/Users/Abigail/Desktop/ecor_16S_goodreads.txt",header=TRUE) #read in list of names we need; to change each time the file changes
+goodreads<-read.table("C:/Users/Abigail/Desktop/patelleLCOgoodreads.txt",header=TRUE) #read in list of names we need; to change each time the file changes
 files<-list.files() #make a list of all files in the working directory
 seq_out_table = NULL #initialize empty data frame
 
@@ -20,5 +20,5 @@ for (i in goodreads$well) {
 
 colnames(seq_out_table)<-c("read","well") #rename columns on output table; prob not needed
 
-write.fasta(seq_out_table[,1],names=seq_out_table[,2],"C:/Users/Abigail/Desktop/ecor_16S.fasta") 
+write.fasta(seq_out_table[,1],names=seq_out_table[,2],"C:/Users/Abigail/Desktop/patelle_LCO.fasta") 
 #command to save to fasta with sequences and well names; change file name for each locus
