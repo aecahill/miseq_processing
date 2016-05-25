@@ -1,14 +1,14 @@
 #This is a program that takes a list of read names and well names and creates a fasta file of the reads we want for a single locus.
 #use for DIPLOID LOCI!!!
+#Revamped for use after DANA
 #input: text file with list of reads and well names associated (2 reads per well!!!)
 #for now, header on text file needs to read "read1", "read2", "ratio1", "well"
-#also need working directory to contain all fasta files for a locus (.unique are best b/c smallest)
-#NB: will break if the names of the wells are not represented in the file list
-#goodreads table is based on the count_table code
+#also need working directory to contain all fasta files for a locus 
+#goodreads table is based on the count_table_DANA_diploid code
 
 library (seqinr) #load seqinr
 
-goodreads<-read.table("C:/Users/Abigail/Desktop/Reverse/goodreadsR/pcae_i48_goodreadsR.txt",header=TRUE) #read in list of names we need; to change each time the file changes
+goodreads<-read.table("C:/Users/Abigail/Desktop/olon_1972_goodreads3.txt",header=TRUE) #read in list of names we need; to change each time the file changes
 files<-list.files() #make a list of all files in the working directory
 seq_out_table_hom = NULL #initialize empty data frame
 seq_out_table_het = NULL
@@ -44,5 +44,5 @@ seq_out_table_all<-rbind(seq_out_table_hom,seq_out_table_het) #make table with a
 
 colnames(seq_out_table_all)<-c("read","well") #rename columns on output table; prob not needed
 
-write.fasta(seq_out_table_all[,1],names=seq_out_table_all[,2],"C:/Users/Abigail/Desktop/Reverse/out_fasta_R/pcae_i48_alloutR.fasta") 
+write.fasta(seq_out_table_all[,1],names=seq_out_table_all[,2],"C:/Users/Abigail/Desktop/olon_1972_allout.fasta") 
 #command to save to fasta with sequences and well names; change file name for each locus

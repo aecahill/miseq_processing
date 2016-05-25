@@ -11,7 +11,7 @@
 
 library (seqinr) #load seqinr
 
-goodreads<-read.table("C:/Users/Abigail/Desktop/olon_147510_goodreads.txt",header=TRUE) #read in list of names we need; to change each time the file changes
+goodreads<-read.table("C:/Users/Abigail/Desktop/asqu_i50_goodreads.txt",header=TRUE) #read in list of names we need; to change each time the file changes
 files<-list.files() #make a list of all files in the working directory
 seq_out_table = NULL #initialize empty data frame
 
@@ -46,9 +46,9 @@ seq3<-cbind(seqread,seqwell,seqcount) #bind vectors back together into output ta
 
 colnames(seq3)<-c("read","well","count") #rename columns on output table
 
-write.csv(seq3,"C:/Users/Abigail/Desktop/olon_147510_allout.csv") #write output table
+write.csv(seq3,"C:/Users/Abigail/Desktop/asqu_i50_allout.csv") #write output table
 
-seq4<-read.csv("C:/Users/Abigail/Desktop/olon_147510_allout.csv",header=TRUE) #read back in output table - NECESSARY bc of the way the read names are read by R
+seq4<-read.csv("C:/Users/Abigail/Desktop/asqu_i50_allout.csv",header=TRUE) #read back in output table - NECESSARY bc of the way the read names are read by R
 
 unique_reads<-unique(seq4$read) #make vector of unique sequences (=haplotype numbers)
 
@@ -80,5 +80,5 @@ colnames(out_table)<-c("well","haplotype_number","number_reads","read_name","seq
 
 #dim(out_table) #dimensions of table; used as check to make sure the code is working
 
-write.csv(out_table,"C:/Users/Abigail/Desktop/olon_147510_majoritycounttable.csv") #write majority count table to desktop
+write.csv(out_table,"C:/Users/Abigail/Desktop/asqu_i50_majoritycounttable.csv") #write majority count table to desktop
 
