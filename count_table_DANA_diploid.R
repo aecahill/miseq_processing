@@ -29,4 +29,4 @@ z<-arrange(out_table,desc(total)) #sort output table by decreasing total
 
 
 #Then use write.table function to output table as txt file for further use
-write.csv(z,"C:/Users/Abigail/Desktop/olon1972_diploid_counts.csv")
+write.csv(z,"C:/Users/Abigail/Desktop/olon147510_diploid_counts.csv")
